@@ -2,21 +2,21 @@ version: "3.9"
 
 services:
   database:
-    image: postgres:12
+    image: postgres:latest
     container_name: postgres
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
       - ./:/app/
     environment:
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
     networks:
       - internal
 
   rabbitmq-container:
-    image: rabbitmq:3.11-management
+    image: rabbitmq:latest
     hostname: rabbitmq-container
     ports:
       - "15672:15672"

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @Builder
@@ -18,71 +20,36 @@ public class Product {
     private Integer id;
 
     private String name;
+    private String author;
+    private String publisher;
+    private Date publishDate;
+    private int pages;
+    private double price;
 
-    private String description;
+    //War nicht in Tobis repo. Intellij zeigt aber einen Error ohne das. Vllt. läuft der App ohne das trotzdem.
+    public Product(){}
 
-    private String price;
+    public Integer getId() { return id;}
 
-    private String details;
+    public void setId(Integer id) { this.id = id; }
 
-    private int count;
+    public String getName() { return name; }
 
-    private String imageLink;
+    public void setName(String name) {this.name = name; }
 
-    public Integer getId() {
-        return id;
-    }
+    public String getPublisher() { return publisher; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setPublisher(String publisher) { this.publisher = publisher; }
 
-    public String getName() {
-        return name;
-    }
+    public Date getPublishDate() { return publishDate; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setPublishDate(Date publishDate) { this.publishDate = publishDate; }
 
-    public String getDescription() {
-        return description;
-    }
+    public int getPages() {return pages; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setPages(int pages) {this.pages = pages; }
 
-    public String getPrice() {
-        return price;
-    }
+    public double getPrice() { return price; }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public String getImageLink() {
-        return imageLink;
-    }
-
-    public void setImageLink(String imageLink) {
-        this.imageLink = imageLink;
-    }
-
+    public void setPrice(double price) { this.price = price; }
 }
