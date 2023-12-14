@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -15,23 +15,35 @@ import java.util.Date;
 @Table(name = "product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
-    private Integer id;
+    private UUID id;
 
     private String name;
     private String author;
     private String publisher;
-    private Date publishDate;
+    private String description;
+    private String imgUrl;
+    private int publishYear;
     private int pages;
     private double price;
 
-    //War nicht in Tobis repo. Intellij zeigt aber einen Error ohne das. Vllt. läuft der App ohne das trotzdem.
     public Product(){}
 
-    public Integer getId() { return id;}
+    public Product(String name, String author, String publisher, String description, String imgUrl, int publishYear, int pages, double price) {
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
+        this.description = description;
+        this.imgUrl = imgUrl;
+        this.publishYear = publishYear;
+        this.pages = pages;
+        this.price = price;
+    }
 
-    public void setId(Integer id) { this.id = id; }
+    public UUID getId() { return id;}
+
+    public void setId(UUID id) { this.id = id; }
 
     public String getName() { return name; }
 
@@ -41,15 +53,29 @@ public class Product {
 
     public void setPublisher(String publisher) { this.publisher = publisher; }
 
-    public Date getPublishDate() { return publishDate; }
+    public int getPublishYear() { return publishYear; }
 
-    public void setPublishDate(Date publishDate) { this.publishDate = publishDate; }
+    public void setPublishDate(int publishYear) { this.publishYear = publishYear; }
 
     public int getPages() {return pages; }
 
     public void setPages(int pages) {this.pages = pages; }
 
-    public double getPrice() { return price; }
-
     public void setPrice(double price) { this.price = price; }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 }

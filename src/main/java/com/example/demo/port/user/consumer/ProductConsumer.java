@@ -7,6 +7,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class ProductConsumer {
 
@@ -19,6 +21,6 @@ public class ProductConsumer {
     public void consume(String message){
 
         LOGGER.info(String.format("Received message -> %s", message));
-        productService.getProduct(123);
+        productService.getProduct(new UUID(1L, 2L));
     }
 }

@@ -1,16 +1,20 @@
 package com.example.demo.core.domain.service.interfaces;
 
 import com.example.demo.core.domain.model.Product;
+import com.example.demo.port.user.exception.ProductNotFoundException;
+
+import java.util.List;
+import java.util.UUID;
 
 public interface IProductService
 {
-    void createProduct (Product product);
+    Product createProduct (Product product);
 
-    void updateProduct (Product product);
+    Product updateProduct (Product product) throws ProductNotFoundException;
 
-    void deleteProduct (Product product);
+    void deleteProduct (UUID id) throws ProductNotFoundException;
 
-    Product getProduct(int id);
+    Product getProduct(UUID id) throws ProductNotFoundException;
 
-    Iterable<Product> getAllProducts();
+    List<Product> getAllProducts();
 }
