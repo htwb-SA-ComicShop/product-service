@@ -4,15 +4,19 @@ import com.example.demo.core.domain.model.Product;
 import com.example.demo.core.domain.service.interfaces.IProductRepository;
 import com.example.demo.core.domain.service.interfaces.IProductService;
 import com.example.demo.port.user.exception.ProductNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class ProductService implements IProductService {
+    @Autowired
     private final IProductRepository productRepository;
 
     public Product createProduct(Product product) {
